@@ -1,6 +1,8 @@
 import os
 import sys
 
+Import("environment")
+
 yyymonitor_files = ["monitor.cpp"]
 
 if sys.platform.startswith('win'):
@@ -8,6 +10,6 @@ if sys.platform.startswith('win'):
 else:
   yyymonitor_files += ["monitor_pthread.c"]
 
-libyyymonitor = StaticLibrary("yyymonitor", yyymonitor_files)
+libyyymonitor = environment.StaticLibrary("yyymonitor", yyymonitor_files)
 
 Return("libyyymonitor")

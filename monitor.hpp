@@ -87,12 +87,12 @@ public:
           : that(m){
             that->Lock();
         }
-          
+
         ~Locker(){
             that->Unlock();
         }
     };
-    
+
     struct Locker CreateLocker(){
         return Locker(this);
     }
